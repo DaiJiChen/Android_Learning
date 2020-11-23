@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_green"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello from Jichen!"
+        android:textSize="40sp"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        />
+
+    <TextView
+        android:id="@+id/text_color_botton"
+        android:layout_width="230dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_blue"
+        android:padding="7dp"
+        android:text="Change  text  color"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true" />
+
+    <TextView
+        android:id="@+id/background_color_botton"
+        android:layout_width="230dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_blue"
+        android:padding="10dp"
+        android:text="Change background color"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_above="@id/text_color_botton"
+        android:layout_margin="10dp" />
+
+    <TextView
+        android:id="@+id/change_text_botton"
+        android:layout_width="230dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_blue"
+        android:padding="10dp"
+        android:text="Change  text  content"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_above="@id/background_color_botton"
+        android:layout_margin="10dp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_above="@id/change_text_botton"
+        android:hint="Create your text"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/change_custom_text_botton"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_blue"
+        android:padding="7dp"
+        android:text="Change to your own text"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_above="@id/editText"
+        android:layout_margin="10dp" />
+
+
+
+</RelativeLayout>
