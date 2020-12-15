@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         ImageView image = (ImageView) view;
         int tag = Integer.valueOf(image.getTag().toString());
 
+        if(gameState[tag-1] != 0) return;
+
         gameState[tag-1] = redTurn ? 1:-1;
         Log.i("Info", gameState.toString());
 
