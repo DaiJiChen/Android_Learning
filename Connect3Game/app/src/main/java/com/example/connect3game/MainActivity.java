@@ -6,7 +6,9 @@ import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -76,6 +78,20 @@ public class MainActivity extends AppCompatActivity {
         if(redWin && !yellowWin) return 1;
         else if(!redWin && yellowWin) return -1;
         else return 0;
+    }
+
+    public void playAgain(View viwe) {
+        LinearLayout lines = findViewById(R.id.board);
+        for(int i = 0; i < lines.getChildCount(); i++) {
+            LinearLayout line = (LinearLayout) lines.getChildAt(i);
+            for (int j = 0; j < line.getChildCount(); j++) {
+                ImageView image = (ImageView) line.getChildAt(j);
+                redTurn = true;
+                gameActive = true;
+                gameState = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
+                image.animate().alpha(0);
+            }
+        }
     }
 
     @Override
