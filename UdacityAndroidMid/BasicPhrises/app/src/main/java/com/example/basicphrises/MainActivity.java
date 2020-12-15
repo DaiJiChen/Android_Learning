@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         Log.i("Button pressed", buttonPressed.getTag().toString());
 
-        MediaPlayer mediaPlayer = MediaPlayer.create(this, getResources().getIdentifier(buttonPressed.getTag().toString(), "raw", getPackageName()));
+        int resourceID = this.getResources().getIdentifier(buttonPressed.getTag().toString(), "raw", this.getPackageName());
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.hello);
 
         mediaPlayer.start();
 
