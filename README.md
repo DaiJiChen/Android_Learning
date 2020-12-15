@@ -1,6 +1,7 @@
 # Android Projects for practicing
 1. Android HelloWorld
 2. Currency Converter
+3. Connect 3 Games
 
 
 ## 1.My_First_App
@@ -31,3 +32,17 @@ A single activity App that convert dollar to China Yuan.
 
 ### User Stories
 - [X] 1. User can input anount in dollar and press a button to see the amount in China Yuan.
+
+
+## 3. Connect 3 Games
+Make three pieces on a line to win the game
+
+### App Walk-though
+<img src="https://raw.githubusercontent.com/DaiJiChen/Android_Learning/main/Connect3Game/GIF.gif" width=200><br>
+
+### User Stories
+- [X] 1. User can click a grid to drop red or yellow piece on it, red piece and yellow piece will be droped iteratively.
+- [X] 2. Prohibit dropping pieces on non-empty grids.
+- [X] 3. Check winning conditions after each drop and Toast winner on screen if one side has won.
+- [X] 4. Prohibit dropping more pieces after one side has won.
+- [X] 5. Users can click the "play again" button to reset the game.
