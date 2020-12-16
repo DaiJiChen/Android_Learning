@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         button = findViewById(R.id.button);
-        editText = findViewById(R.id.editText);
+        editText = findViewById(R.id.editItem);
         rvItems = findViewById(R.id.rvItems);
 
 
@@ -50,7 +50,17 @@ public class MainActivity extends AppCompatActivity {
                 saveItems();
             }
         };
+        ItemsAdapter.OnClickListener onClickListener = new ItemsAdapter.OnClickListener() {
+            @Override
+            public void onItemClicked(int position) {
+                Log.d("MainActivity", "Single clcck at position " + position);
+                // create new Activity
+                
+                // pass teh data being edited
+                // display the activity
 
+            }
+        };
         itemsAdapter = new ItemsAdapter(items, onLongClickListener);
         rvItems.setAdapter(itemsAdapter);
         rvItems.setLayoutManager(new LinearLayoutManager(this));
