@@ -24,10 +24,10 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
         void onItemClicked(int position);
     }
 
-    public ItemsAdapter(List<String> items, OnLongClickListener longClickListener, OnClickListener) {
+    public ItemsAdapter(List<String> items, OnLongClickListener longClickListener, OnClickListener onClickListener) {
         this.items = items;
         this.longClickListener = longClickListener;
-        this.longClickListener = longClickListener;
+        this.onClickListener = onClickListener;
     }
 
     @NonNull
@@ -69,7 +69,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
             tvItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    longClickListener.onItemLongClicked(getAdapterPosition());
+                    onClickListener.onItemClicked(getAdapterPosition());
                 }
             });
             tvItem.setOnLongClickListener(new View.OnLongClickListener() {
