@@ -25,6 +25,6 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
-        android:text="Button"
+        android:text="Save"
         app:backgroundTint="#4CAF50" />
 </RelativeLayout>
