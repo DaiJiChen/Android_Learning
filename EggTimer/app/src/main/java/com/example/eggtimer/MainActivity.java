@@ -2,35 +2,37 @@ package com.example.eggtimer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    SeekBar seekBar;
+    TextView textView;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SeekBar seekBar = findViewById(R.id.seekBar);
-        TextView textView = findViewById(R.id.textView);
+        seekBar = findViewById(R.id.seekBar);
+        textView = findViewById(R.id.textView);
+        button = findViewById(R.id.button);
 
         seekBar.setMax(600);
         seekBar.setProgress(30);
 
+
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                String secString = String.valueOf(i % 60);
-                if((i % 60 < 10)) secString = "0" + secString;
-
-                String minString = String.valueOf(i / 60);
-                if((i / 60 < 10)) minString = "0" + minString;
-
-                textView.setText(minString + ":" + secString);
-                Log.i("seekBar changed", "Curr time is: " + minString + ":" + secString);
+                updateTime(i);
             }
 
             @Override
@@ -43,6 +45,38 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               new CountDownTimer(seekBar.getProgress() * 1000, 1000) {
+
+                   @Override
+                   public void onTick(long l) {
+                       updateTime((int)(l / 1000));
+                   }
+
+                   @Override
+                   public void onFinish() {
+                        Log.i("Finished", "Timer all done");
+                       MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.air_horn);
+                       mediaPlayer.start();
+                   }
+               }.start();
+            }
+        });
+
+    }
+
+    private void updateTime(int secondsLeft) {
+        String secString = String.valueOf(secondsLeft % 60);
+        if((secondsLeft % 60 < 10)) secString = "0" + secString;
+
+        String minString = String.valueOf(secondsLeft / 60);
+        if((secondsLeft / 60 < 10)) minString = "0" + minString;
+
+        textView.setText(minString + ":" + secString);
+        Log.i("Remaining time changed", "Curr time is: " + minString + ":" + secString);
 
     }
 }

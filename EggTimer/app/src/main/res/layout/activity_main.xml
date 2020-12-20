@@ -6,13 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp" />
+        android:layout_margin="8dp"
+        android:background="#C1B7B7" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -35,14 +37,16 @@
             android:textSize="60sp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:backgroundTint="#FF9800"
-            android:text="Button" />
+            android:text="Go"
+            android:textSize="20sp"
+            app:iconTint="#FFFFFF" />
 
 
     </RelativeLayout>
