@@ -40,7 +40,7 @@
             android:layout_below="@+id/textView"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:backgroundTint="@color/teal_700"
+            android:backgroundTint="#FF9800"
             android:text="Button" />
 
 
