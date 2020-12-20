@@ -51,12 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(timing) {
-                    textView.setText("00:30");
-                    seekBar.setProgress(30);
-                    seekBar.setEnabled(true);
-                    timer.cancel();
-                    button.setText("GO");
-                    timing = false;
+                    resetTimer();
                 }
                 else {
                     timing = true;
@@ -73,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                             Log.i("Finished", "Timer all done");
                             MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.air_horn);
                             mediaPlayer.start();
+                            resetTimer();
                         }
                     }.start();
                 }
@@ -90,6 +86,14 @@ public class MainActivity extends AppCompatActivity {
 
         textView.setText(minString + ":" + secString);
         Log.i("Remaining time changed", "Curr time is: " + minString + ":" + secString);
+    }
 
+    public void resetTimer() {
+        textView.setText("00:30");
+        seekBar.setProgress(30);
+        seekBar.setEnabled(true);
+        timer.cancel();
+        button.setText("GO");
+        timing = false;
     }
 }
