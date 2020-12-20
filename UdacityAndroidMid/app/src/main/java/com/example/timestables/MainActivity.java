@@ -11,6 +11,7 @@ import android.widget.SeekBar;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    public static final int ARRAY_SIZE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.listView);
 
         ArrayList<Integer> array = new ArrayList<>();
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < ARRAY_SIZE; i++)
             array.add(i+1);
 
         ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_list_item_1, array);
@@ -37,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
                 if(i < 1) i = 1;
 
-                for(int index = 0; index < array.size(); index++)
+                for(int index = 0; index < ARRAY_SIZE; index++)
                     array.set(index, (index+1) * i);
-                
+
                 arrayAdapter.notifyDataSetChanged();
             }
 
