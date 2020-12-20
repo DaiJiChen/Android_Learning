@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     SeekBar seekBar;
     TextView textView;
     Button button;
+    CountDownTimer timer;
+    boolean timing = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,27 +44,38 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               new CountDownTimer(seekBar.getProgress() * 1000, 1000) {
+                if(timing) {
+                    textView.setText("00:30");
+                    seekBar.setProgress(30);
+                    seekBar.setEnabled(true);
+                    timer.cancel();
+                    button.setText("GO");
+                    timing = false;
+                }
+                else {
+                    timing = true;
+                    seekBar.setEnabled(false);
+                    button.setText("STOP");
+                    timer = new CountDownTimer(seekBar.getProgress() * 1000, 1000) {
+                        @Override
+                        public void onTick(long l) {
+                            updateTime((int)(l / 1000));
+                        }
 
-                   @Override
-                   public void onTick(long l) {
-                       updateTime((int)(l / 1000));
-                   }
-
-                   @Override
-                   public void onFinish() {
-                        Log.i("Finished", "Timer all done");
-                       MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.air_horn);
-                       mediaPlayer.start();
-                   }
-               }.start();
+                        @Override
+                        public void onFinish() {
+                            Log.i("Finished", "Timer all done");
+                            MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.air_horn);
+                            mediaPlayer.start();
+                        }
+                    }.start();
+                }
             }
         });
 
