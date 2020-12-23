@@ -1,21 +1,17 @@
-package com.example.show_hide_ui_elements;
+package com.example.braintrainer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView textView;
+    Button startButton;
 
-    public void show(View view) {
-        textView.setVisibility(View.VISIBLE);
-    }
-
-    public void hide(View view) {
-        textView.setVisibility(View.INVISIBLE);
+    public void start(View view) {
+        startButton.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -23,6 +19,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView = findViewById(R.id.textView);
+        startButton = findViewById(R.id.start);
     }
 }
