@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Select Language</string>
+    <string name="Chinese_Welcome">"你好，世界"</string>
+    <string name="English_Welcome">"Hello, World"</string>
+    <string name="English">"English"</string>
+    <string name="Chinese">"Chinese"</string>
+
+</resources>
