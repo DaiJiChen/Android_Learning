@@ -1,6 +1,6 @@
 # Android Learning: Projects and Notes
 
-## Activity Lifecycle
+## 1. Activity Lifecycle
 ![Image of activity lifecycle](https://github.com/DaiJiChen/Android_Learning/blob/main/Readme/Activity_Lifecycle.jpg?raw=true)
 
 As shown in graph above, there are 6 activity lifecycle methods. You just override them when needed.
@@ -41,7 +41,7 @@ public class QuizActivity extends AppCompatActivity {
 
 After onStop() is called, activity will be marked as killable and memory might be token away. But don't worry, because we already execured onSaveInstanceState(). The `bunlde` objet is stored into this activity's `activity record` by the OS. This record only been deleted after onDestroy() is called.
 
-## Intents
+## 2. Intents
 An intent is an object that a component can use to communicate with the OS.
 ```java
    public Intent(Context packageContext, Class<?> cls)
