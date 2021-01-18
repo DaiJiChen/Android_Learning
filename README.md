@@ -41,6 +41,9 @@ public class QuizActivity extends AppCompatActivity {
 
 After onStop() is called, activity will be marked as killable and memory might be token away. But don't worry, because we already execured onSaveInstanceState(). The `bunlde` objet is stored into this activity's `activity record` by the OS. This record only been deleted after onDestroy() is called.
 
+
+
+
 ## 2. Intents
 An intent is an object that a component can use to communicate with the OS.
 ```java
@@ -54,6 +57,20 @@ The Context argument tells the ActivityManager which application package the act
 
 Explicit Intents: start activities within same application.
 Implicit intents: start activities in another application.
+
+### Using intent extra to passing data between activities.
+Put data into intent
+```
+intent.putExtra("key", "value");
+```
+
+
+Use data in new activity:
+```    
+    Intent intent = getIntent();
+    String value = intent.getStringExtra("key");
+```
+
 
 
 ## References:
