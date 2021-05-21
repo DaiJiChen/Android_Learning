@@ -1,8 +1,11 @@
 package com.example.listviews;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if(savedInstanceState != null) {
+            int val = savedInstanceState.getInt("key", 0);
+        }
 
         ListView myListView = findViewById(R.id.myListView);
 
@@ -36,5 +42,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle savedInstanceState, @NonNull PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(savedInstanceState, outPersistentState);
+        savedInstanceState.putInt("key", 1);
     }
 }
