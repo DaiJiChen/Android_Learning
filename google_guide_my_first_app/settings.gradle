@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "google_guide_my_first_app"

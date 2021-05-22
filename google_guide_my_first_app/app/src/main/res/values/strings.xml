@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">google_guide_my_first_app</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">send</string>
+</resources>
