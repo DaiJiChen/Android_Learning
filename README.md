@@ -95,15 +95,15 @@ Kotlin， Java or C++ code ----SDK----> `.apk` (Android Package)
 
 `An activity` is the entry point for interacting with the user. It represents a single screen.
 
-`A service` is a general-purpose entry point for keeping an app running in the background. A service don't provide a user interface. There are two kinds of services:
-1. Started services keep running until their work is complete.(might be killed and restart when needed)
-2. Bound services privides an API to other process, thus is bound to other processes. There is a dependency between these processes.
+`A service` is a general-purpose entry point for keeping an app running in the background, it don't provide a user interface. There are two kinds of services:
+1. `Started services` keep running until their work is complete.(might be killed and restart when needed)
+2. `Bound services` privides an API to other process, thus is bound to other processes. There is a dependency between these processes.
 
 `Broadcast receiver` enables the system to deliver events to the apps outside of a regular user flow, allowing the app to respond to system-wide broadcast announcements. Althouth broadcast receivers don't display a user interface, they may create a status bar notification. A broadcast receiver is implemented as a subclass of BroadcastReceiver and each broadcast is delivered as an Intent object.
 
 `Content provider` manages data that stored in file system, in a SQLite database, or web. 
 
-`Any app can start another app's cmponents.` When the system starts a component, it starts the process for taht app if it's not already running.
+`Any app can start another app's cmponents.` When the system starts a component, it starts the process for that app if it's not already running.
 
 Your app cannot directly activate a component from another app. But you can deliver a message to system and the system then activates the component for you.
 
@@ -114,11 +114,34 @@ Content providers are not activated by intents. Rather, they are activated when 
 
 ### The manifest file
 
+AndroidManifest.xml declares all components of this app.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest ... >
+    <application android:icon="@drawable/app_icon.png" ... >
+        <activity android:name="com.example.project.ExampleActivity"
+                  android:label="@string/example_label" ... >
+        </activity>
+        ...
+    </application>
+</manifest>
+```
+
+
+it also:
+* Identify all user permissions, such as unternet access
+* Declares the minimal API Level
+* Declares hardware and software features used or required by the app, such as camera
+* Declares API libraries the app needed, such as Google Maps library
+
 ### Resources 
 
-seperated from code so that you can optimize app's behavior for a variety of device configurations
+Using app resources makes it easy to update various characteristics of your app without modifying code.
 
+Providing multiple sets of alternative resources enables you to optimize your app for a variety of device configurations, such as different languages and screen sizes.
 
+For each resource in your project, the SDK defines a unique integer ID forit.
 
 
 ## References:
