@@ -115,7 +115,85 @@ https://developer.android.com/images/resources/res-selection-flowchart.png
 Note: When selecting resources based on the screen size qualifiers, the system can accept a screen smaller than the current screen if there are no better match(for example, a large-size screen uses normal-size screen resources if necessary).
 
 
+### Resource Types
 
+#### Animation 
+
+Two types of animations:
+
+1. Property Animations: modify object's property over a period of time.
+2. View Animation
+> Two types of View animation
+> 1. Tween animation: performing a series of transformations on a single image
+> 2. Frame Animation: showing a sequence of images in order.
+
+
+
+#### Color state list (res/color/  R.color)
+Define a color resources that change based on the View state.
+
+Saved in `res/color/` and accessed from the `R.color`
+
+#### Drawable 
+Define various graphics with bitmaps or XML.
+
+Saved in `res/drawable/` and accessed from the `R.drawable`
+
+#### Layout
+Define an UI.
+
+Saved in `res/layout/` and accessed from `R.layout`
+
+#### Menu 
+Define the contents of your application menus
+
+Saved in `res/menu` and accessed from the `R.menu`
+
+#### String 
+
+Define Stringm String arrays, and plurals
+
+Saved in `res/values/` and accessed from the `R.string`, `R.array`, `R.plurals`
+
+#### Style
+
+Define look for UI elements.
+
+Saved in `res/style` and accessed from the `R.style`
+
+#### Font
+
+Define font families and include custom fonts in XML.
+
+Saved in `res/font/` and accessed from the `R.font`
+
+#### Bool
+
+XML that carries a boolean value
+
+#### Color
+
+XML that carries a color value
+
+#### Dimension
+
+XML that carries a dimension value
+
+#### ID
+
+XML that privides a unique ID for resources or components
+
+#### Integer
+
+XML that carries an integer value
+
+#### Integer Array
+
+XML that carries an array of integer
+
+#### Typed Array
+
+XML that provides a TypedArray(array of drawables)
 
 
 
