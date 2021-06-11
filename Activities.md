@@ -11,13 +11,27 @@ There are 6 activity lifecycle methods. You just override them when needed.
 
 ***onCreate()***: 
 > Do things that only happen once in lifecycle.(Such as create views and bind data to lists)
+> 
 > Receives the parameter `savedInstanceState`, which is a `bundle` object. If the activity never existed before, the `bunlde` activity will be null.
 
-***onStart()***: Becomes visible to user after call onStart().
+***onStart()***: 
+> Makes the activity visible to user.
+> 
+> After call onStart(), activity won't stay in *Created state**, it immediately enters **Resumed state** and system invokes `onResume()` method.
 
-***onResume()***: Activity is at the top of the activity stack and captures all user input.
+***onResume()***: 
+> When the activity enters the Resumed state, it comes to the foreground. Then the system invokes the onResume() callback. 
+> 
+> Activity will stay in resumed state until something happens to take focus away from the app.
 
-***onPause()***: This occures when, for example, the user taps the Back or Recents button. The activity after onPause() is still visible or partial visible. You should **not** use  onPause() to save application or user data, make network calls, or execute databsae transactions.
+***onPause()***: 
+> Means activity is no longer i the foreground (though still visible in multi window mode)
+> 
+> onPause() execution i svery brief, so you should **not** use onPause() to do heavy-load shutdown operations, such as save application or user data, make network calls. Instead, you should perform heavy-load operations during onStop().
+>  
+>  Completion of onPause() does not mean the activity leaves the Paused state, it will remain in this state until either the activity resumes or becomes completely invisible.
+>  
+>  Instances will still stay in memory when activity is paused. So you don't need to re-initialize any components.
  
 ***onStop()***: The activity is no longer visible. The next calback is either onRestart() or onDestroy().
 
