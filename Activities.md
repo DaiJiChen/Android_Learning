@@ -5,19 +5,31 @@
 ## 1. Activity Lifecycle
 ![Image of activity lifecycle](https://github.com/DaiJiChen/Android_Learning/blob/main/Readme/Activity_Lifecycle.jpg?raw=true)
 
+![google_activity_lifecycle](https://developer.android.com/guide/components/images/activity_lifecycle.png)
+
 There are 6 activity lifecycle methods. You just override them when needed.
 
-***onCreate()***: Create views and bind data to lists.
+***onCreate()***: 
+> Do things that only happen once in lifecycle.(Such as create views and bind data to lists)
+> Receives the parameter `savedInstanceState`, which is a `bundle` object. If the activity never existed before, the `bunlde` activity will be null.
 
 ***onStart()***: Becomes visible to user after call onStart().
 
 ***onResume()***: Activity is at the top of the activity stack and captures all user input.
 
-Which methods will be called when you press `Back Button`: onPause(), onStop(), onDestroy().
+***onPause()***: This occures when, for example, the user taps the Back or Recents button. The activity after onPause() is still visible or partial visible. You should **not** use  onPause() to save application or user data, make network calls, or execute databsae transactions.
+ 
+***onStop()***: The activity is no longer visible. The next calback is either onRestart() or onDestroy().
 
-Which methods will be called when you press `Home Button`: onPause(), onStop().
+***onRestart()***: Always follower by `onStart()` Restores the state of the activity from the time that it was stopped.
 
-What happen when you `rotate your screen`: current activity will be destroyed and then been resumed again. Called method is: onPause(), onStop(), onDestroy(), onCreate(), onStart(), onResume().
+***onDestroy***: Implemented to makesure that all of an activity's resources are released
+
+When you press `Back Button`: onPause(), onStop(), onDestroy().
+
+When you press `Home Button`: onPause(), onStop().
+
+When you `rotate your screen`: current activity will be destroyed and then been resumed again. Called method is: onPause(), onStop(), onDestroy(), onCreate(), onStart(), onResume().
 
 In order to hold the same data across rotation, we should save date and use them to build the new activity.
 
